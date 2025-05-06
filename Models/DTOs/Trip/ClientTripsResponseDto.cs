@@ -1,6 +1,6 @@
-namespace apbd_7.Models;
+﻿namespace apbd_7.Models.DTOs.Trip;
 
-public class Trip
+public class ClientTripsResponseDto
 {
     public int IdTrip { get; set; }
     public string Name { get; set; } = null!;
@@ -9,5 +9,6 @@ public class Trip
     public DateTime DateTo { get; set; }
     public int MaxPeople { get; set; }
 
-    public List<Country>? Countries { get; set; }
+    public int RegisteredAt { get; set; }
+    public int? PaymentDate { get; set; }
 }
