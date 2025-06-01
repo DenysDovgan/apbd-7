@@ -10,9 +10,16 @@ namespace apbd_9.Controllers;
 public class PrescriptionController(IPrescriptionService prescriptionService) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreatePrescriptionDto createDto)
+    public async Task<IActionResult> Create([FromBody] CreatePrescriptionDto dto)
     {
-        var prescription = await prescriptionService.CreateAsync(createDto);
-        return CreatedAtAction(nameof(Create), new { id = prescription.Id }, prescription);
+        try
+        {
+            var id = await prescriptionService.CreatePrescriptionAsync(dto);
+            return Created($"api/prescription/{id}", new { id });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

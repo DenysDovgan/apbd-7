@@ -1,11 +1,13 @@
-using apbd_9.Models.Entities;
-
 namespace apbd_9.Models.DTOs;
 
 public class CreatePrescriptionDto
 {
-    public Patient Patient { get; set; } = null!;
-    public List<MedicamentDto> Medicaments { get; set; } = new List<MedicamentDto>();
+    public PatientDto Patient { get; set; } = null!;
+
+    public int DoctorId { get; set; }
+
     public DateTime Date { get; set; }
     public DateTime DueDate { get; set; }
+
+    public List<PrescriptionMedicamentDto> Medicaments { get; set; } = new();
 }

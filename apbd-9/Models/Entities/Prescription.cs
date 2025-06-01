@@ -26,4 +26,6 @@ public class Prescription
     
     public Patient Patient { get; set; } = null!;
     public Doctor Doctor { get; set; } = null!;
+    
+    public ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; set; } = new List<PrescriptionMedicament>();
 }

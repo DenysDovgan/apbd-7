@@ -18,4 +18,6 @@ public class Medicament
     
     [Required, MaxLength( 100 )]
     public string Type { get; set; } = null!;
+    
+    public ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; set; } = new List<PrescriptionMedicament>();
 }
